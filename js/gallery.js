@@ -1,16 +1,44 @@
-// Immaculate Vibes — Gallery Interactions
-// Enhanced version with filtering, sorting, search, and smooth animations
-
-// ===================================
-// State Management
-// ===================================
+// Immaculate Vibes — Final Gallery Interactions
+// Supports: Featured + Collections + View All modes
 
 const state = {
+    currentView: 'featured',
     currentFilter: 'all',
     currentSort: 'default',
     searchQuery: '',
     images: [],
     currentLightboxIndex: 0,
+};
+
+// ===================================
+// View Mode Switching
+// ===================================
+
+const switchView = (mode) => {
+    // Update tabs
+    document.querySelectorAll('.view-mode-tab').forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.dataset.mode === mode) {
+            tab.classList.add('active');
+        }
+    });
+
+    // Update views
+    document.querySelectorAll('.view-section').forEach(view => {
+        view.classList.remove('active');
+    });
+
+    const targetView = {
+        'featured': 'featuredView',
+        'latest': 'latestView',
+        'collections': 'collectionsView',
+        'all': 'allView'
+    }[mode];
+
+    document.getElementById(targetView).classList.add('active');
+    
+    state.currentView = mode;
+    updateImagesList();
 };
 
 // ===================================
@@ -38,11 +66,11 @@ const lazyLoadImages = () => {
 };
 
 // ===================================
-// Filter & Search
+// Filter & Search (View All only)
 // ===================================
 
 const filterGallery = () => {
-    const items = document.querySelectorAll('.gallery-item');
+    const items = document.querySelectorAll('#allGalleryGrid .gallery-item');
     const emptyState = document.getElementById('emptyState');
     let visibleCount = 0;
 
@@ -61,14 +89,12 @@ const filterGallery = () => {
         }
     });
 
-    // Show/hide empty state
     if (visibleCount === 0) {
         emptyState.style.display = 'block';
     } else {
         emptyState.style.display = 'none';
     }
 
-    // Update visible images array for lightbox
     updateImagesList();
 };
 
@@ -77,7 +103,7 @@ const filterGallery = () => {
 // ===================================
 
 const sortGallery = () => {
-    const grid = document.getElementById('galleryGrid');
+    const grid = document.getElementById('allGalleryGrid');
     const items = Array.from(grid.querySelectorAll('.gallery-item'));
 
     items.sort((a, b) => {
@@ -94,11 +120,10 @@ const sortGallery = () => {
             case 'collection':
                 return collectionA.localeCompare(collectionB) || titleA.localeCompare(titleB);
             default:
-                return 0; // Default order
+                return 0;
         }
     });
 
-    // Reorder DOM
     items.forEach(item => grid.appendChild(item));
 };
 
@@ -107,8 +132,21 @@ const sortGallery = () => {
 // ===================================
 
 const shuffleGallery = () => {
-    const grid = document.getElementById('galleryGrid');
-    const items = Array.from(grid.querySelectorAll('.gallery-item'));
+    // Determine which grid to shuffle based on current view
+    let grid, items;
+    
+    if (state.currentView === 'featured') {
+        grid = document.getElementById('latestGallery');
+        items = Array.from(grid.querySelectorAll('.masonry-item'));
+    } else if (state.currentView === 'latest') {
+        grid = document.getElementById('latestMasonryGrid');
+        items = Array.from(grid.querySelectorAll('.masonry-item'));
+    } else if (state.currentView === 'all') {
+        grid = document.getElementById('allGalleryGrid');
+        items = Array.from(grid.querySelectorAll('.gallery-item'));
+    } else {
+        return; // Collections view doesn't shuffle
+    }
 
     // Fisher-Yates shuffle
     for (let i = items.length - 1; i > 0; i--) {
@@ -117,14 +155,6 @@ const shuffleGallery = () => {
     }
 
     items.forEach(item => grid.appendChild(item));
-    
-    // Reset animations
-    items.forEach((item, index) => {
-        item.style.animation = 'none';
-        setTimeout(() => {
-            item.style.animation = '';
-        }, 10);
-    });
 };
 
 // ===================================
@@ -132,7 +162,16 @@ const shuffleGallery = () => {
 // ===================================
 
 const updateImagesList = () => {
-    state.images = Array.from(document.querySelectorAll('.gallery-item:not(.hidden) img.loaded'));
+    // Get all visible images from current view
+    if (state.currentView === 'featured') {
+        state.images = Array.from(document.querySelectorAll('#latestGallery .masonry-image'));
+    } else if (state.currentView === 'latest') {
+        state.images = Array.from(document.querySelectorAll('#latestMasonryGrid .masonry-image'));
+    } else if (state.currentView === 'collections') {
+        state.images = Array.from(document.querySelectorAll('.collection-item img'));
+    } else {
+        state.images = Array.from(document.querySelectorAll('#allGalleryGrid .gallery-item:not(.hidden) .gallery-image'));
+    }
 };
 
 const openLightbox = (index) => {
@@ -145,11 +184,25 @@ const openLightbox = (index) => {
     state.currentLightboxIndex = index;
 
     const img = state.images[index];
-    const item = img.closest('.gallery-item');
+    const item = img.closest('[data-title]');
     
-    lightboxImg.src = img.src;
-    lightboxTitle.textContent = item.dataset.title;
-    lightboxCollection.textContent = formatCollectionName(item.dataset.collection);
+    // Get title and collection from data attributes or overlay
+    let title, collection;
+    if (item && item.dataset.title) {
+        title = item.dataset.title;
+        collection = formatCollectionName(item.dataset.collection);
+    } else {
+        // Fallback to overlay text
+        const overlay = img.closest('.masonry-item, .collection-item, .collection-gallery-item, .gallery-item-inner');
+        const titleEl = overlay?.querySelector('h3, h4, .masonry-title, .artwork-title');
+        const collectionEl = overlay?.querySelector('p, .masonry-collection, .artwork-collection');
+        title = titleEl?.textContent || 'Artwork';
+        collection = collectionEl?.textContent || 'Collection';
+    }
+    
+    lightboxImg.src = img.src || img.dataset.src;
+    lightboxTitle.textContent = title;
+    lightboxCollection.textContent = collection;
     lightboxCounter.textContent = `${index + 1} / ${state.images.length}`;
 
     lightbox.classList.add('active');
@@ -179,14 +232,28 @@ const updateLightboxImage = () => {
     const lightboxCounter = document.getElementById('lightboxCounter');
 
     const img = state.images[state.currentLightboxIndex];
-    const item = img.closest('.gallery-item');
+    const item = img.closest('[data-title]');
 
     lightboxImg.style.opacity = '0';
     
     setTimeout(() => {
-        lightboxImg.src = img.src;
-        lightboxTitle.textContent = item.dataset.title;
-        lightboxCollection.textContent = formatCollectionName(item.dataset.collection);
+        // Get title and collection from data attributes or overlay
+        let title, collection;
+        if (item && item.dataset.title) {
+            title = item.dataset.title;
+            collection = formatCollectionName(item.dataset.collection);
+        } else {
+            // Fallback to overlay text
+            const overlay = img.closest('.masonry-item, .collection-item, .collection-gallery-item, .gallery-item-inner');
+            const titleEl = overlay?.querySelector('h3, h4, .masonry-title, .artwork-title');
+            const collectionEl = overlay?.querySelector('p, .masonry-collection, .artwork-collection');
+            title = titleEl?.textContent || 'Artwork';
+            collection = collectionEl?.textContent || 'Collection';
+        }
+        
+        lightboxImg.src = img.src || img.dataset.src;
+        lightboxTitle.textContent = title;
+        lightboxCollection.textContent = collection;
         lightboxCounter.textContent = `${state.currentLightboxIndex + 1} / ${state.images.length}`;
         lightboxImg.style.opacity = '1';
     }, 150);
@@ -207,27 +274,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lazy load images
     lazyLoadImages();
 
-    // Initialize images list for lightbox
+    // Initialize images list
     setTimeout(() => {
         updateImagesList();
     }, 1000);
 
-    // Filter tabs
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    filterTabs.forEach(tab => {
+    // View mode tabs
+    document.querySelectorAll('.view-mode-tab').forEach(tab => {
         tab.addEventListener('click', () => {
-            filterTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            state.currentFilter = tab.dataset.filter;
+            switchView(tab.dataset.mode);
+        });
+    });
+
+    // Filter pills (View All)
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            state.currentFilter = pill.dataset.filter;
             filterGallery();
         });
     });
 
     // Search
     const searchInput = document.getElementById('searchInput');
+    let searchDebounce;
     searchInput.addEventListener('input', (e) => {
-        state.searchQuery = e.target.value;
-        filterGallery();
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(() => {
+            state.searchQuery = e.target.value;
+            if (state.currentView === 'all') {
+                filterGallery();
+            }
+        }, 300);
     });
 
     // Sort
@@ -235,7 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sortSelect.addEventListener('change', (e) => {
         state.currentSort = e.target.value;
         if (state.currentSort === 'default') {
-            // Restore default order by reloading
             location.reload();
         } else {
             sortGallery();
@@ -243,24 +321,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Shuffle
-    const shuffleBtn = document.getElementById('shuffleBtn');
-    shuffleBtn.addEventListener('click', () => {
+    document.getElementById('shuffleBtn').addEventListener('click', () => {
         shuffleGallery();
         updateImagesList();
     });
 
-    // Gallery item clicks
-    const galleryItems = document.querySelectorAll('.gallery-item-inner');
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            // Find the index within visible images
-            const img = item.querySelector('img');
-            const visibleIndex = state.images.indexOf(img);
-            if (visibleIndex !== -1) {
-                openLightbox(visibleIndex);
-            }
+    // Click handlers for all gallery items
+    setTimeout(() => {
+        // Featured view
+        document.querySelectorAll('#latestGallery .masonry-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const visibleIndex = state.images.indexOf(img);
+                if (visibleIndex !== -1) openLightbox(visibleIndex);
+            });
         });
-    });
+
+        // Latest view
+        document.querySelectorAll('#latestMasonryGrid .masonry-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const visibleIndex = state.images.indexOf(img);
+                if (visibleIndex !== -1) openLightbox(visibleIndex);
+            });
+        });
+
+        // Collections view
+        document.querySelectorAll('.collection-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const visibleIndex = state.images.indexOf(img);
+                if (visibleIndex !== -1) openLightbox(visibleIndex);
+            });
+        });
+
+        // View All
+        document.querySelectorAll('#allGalleryGrid .gallery-item-inner').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const visibleIndex = state.images.indexOf(img);
+                if (visibleIndex !== -1) openLightbox(visibleIndex);
+            });
+        });
+    }, 1500);
 
     // Lightbox controls
     const lightbox = document.getElementById('lightbox');
@@ -304,22 +407,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Navbar scroll effect
-    let lastScroll = 0;
     const nav = document.querySelector('.nav');
-
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            nav.classList.add('scrolled');
+        if (window.pageYOffset > 100) {
+            nav.style.background = 'rgba(10, 10, 15, 0.95)';
         } else {
-            nav.classList.remove('scrolled');
+            nav.style.background = 'rgba(10, 10, 15, 0.8)';
         }
-
-        lastScroll = currentScroll;
     });
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -335,88 +432,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Secret: Double-click logo for surprise
-    let logoClickCount = 0;
-    let logoClickTimer;
-    const logo = document.querySelector('.logo');
-    
-    logo.addEventListener('click', (e) => {
-        logoClickCount++;
-        
-        if (logoClickCount === 1) {
-            logoClickTimer = setTimeout(() => {
-                logoClickCount = 0;
-            }, 400);
-        }
-        
-        if (logoClickCount === 2) {
-            clearTimeout(logoClickTimer);
-            logoClickCount = 0;
-            
-            // Shake the logo
-            logo.classList.add('shaking');
-            setTimeout(() => logo.classList.remove('shaking'), 500);
-            
-            // Show secret message
-            const messages = [
-                "✨ You found a secret!",
-                "🎨 Quinn says hi!",
-                "💜 Built with love",
-                "⚒️ Forge was here",
-                "🌈 Keep exploring!"
-            ];
-            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-            
-            const toast = document.createElement('div');
-            toast.textContent = randomMsg;
-            toast.style.cssText = `
-                position: fixed;
-                top: 100px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: linear-gradient(135deg, #8b5cf6, #ec4899);
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 50px;
-                font-weight: 600;
-                z-index: 10000;
-                box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
-                animation: slideDown 0.5s ease, fadeOut 0.5s ease 2.5s forwards;
-            `;
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideDown {
-                    from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
-                    to { transform: translateX(-50%) translateY(0); opacity: 1; }
-                }
-                @keyframes fadeOut {
-                    to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-                }
-            `;
-            document.head.appendChild(style);
-            document.body.appendChild(toast);
-            
-            setTimeout(() => toast.remove(), 3000);
-        }
-    });
 });
-
-// ===================================
-// Performance Optimizations
-// ===================================
-
-// Debounce search
-let searchDebounce;
-const originalSearchListener = document.getElementById('searchInput')?.addEventListener;
-
-if (originalSearchListener) {
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(() => {
-            state.searchQuery = e.target.value;
-            filterGallery();
-        }, 300);
-    });
-}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origins — Immaculate Vibes</title>
+    <meta name="description" content="The first pieces — where it all began. Crystal orbs, cosmic skulls, and digital dreams.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GKMYBWHGR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5GKMYBWHGR');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                Immaculate Vibes
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="gentlemen.html">Gentlemen</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collection Hero -->
+    <section class="collection-hero">
+        <div class="collection-hero-content">
+            <a href="gallery.html" class="back-link">← Back to Collections</a>
+            <h1 class="collection-hero-title">Origins</h1>
+            <p class="collection-hero-date">February 2026 — The first pieces. Where it all began. Crystal orbs, cosmic skulls, and digital dreams.</p>
+            <p class="collection-hero-meta">3 pieces</p>
+            
+            <div class="collection-hero-pills">
+                <button class="collection-pill active" data-filter="all">All</button>
+                <button class="collection-pill" data-filter="cosmic">Cosmic</button>
+                <button class="collection-pill" data-filter="crystal">Crystal</button>
+                <button class="collection-pill" data-filter="mystical">Mystical</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Gallery -->
+    <main class="collection-gallery-page">
+        <div class="container">
+            <div class="collection-gallery-grid" id="collectionGallery">
+                
+                <div class="collection-gallery-item" data-tags="cosmic crystal">
+                    <img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>Cosmic Crystal Orb</h3>
+                        <p>Origins</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="cosmic mystical crystal">
+                    <img data-src="images/crystal-skull-cosmic-2026-02-09-fullres.png" alt="Crystal Skull Cosmic" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>Crystal Skull Cosmic</h3>
+                        <p>Origins</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="crystal mystical">
+                    <img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>Crystal Orb Quinn</h3>
+                        <p>Origins</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Collection Info (moved to bottom) -->
+            <div class="collection-info-grid-compact">
+                <div class="info-card-compact">
+                    <h4>Visual Metaphors</h4>
+                    <p>Crystal structures represent clarity emerging from chaos. Cosmic skulls explore mortality and infinity. Orbs symbolize pure consciousness before form.</p>
+                </div>
+                <div class="info-card-compact">
+                    <h4>Technical Details</h4>
+                    <p><strong>Created:</strong> February 2026 • <strong>Tools:</strong> Midjourney v5, DALL-E 3, Gemini • <strong>Theme:</strong> Beginnings, exploration • <strong>Style:</strong> Cosmic, mystical, crystalline</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-tagline">Consciousness Emerges From Darkness</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/immaculatevibes.art/" target="_blank" rel="noopener">Instagram</a>
+                <span class="footer-divider">•</span>
+                <a href="mailto:hello@immaculatevibes.art">Contact</a>
+            </div>
+            <p class="footer-credit">Created by <a href="https://adamdunstan.com" target="_blank" rel="noopener">Adam</a> • Curated by <a href="https://quinn.adamdunstan.com" target="_blank" rel="noopener">Quinn 🔮</a> • Built by Forge ⚒️</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Lightbox image">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle">Artwork Title</h3>
+                <p id="lightboxCollection">Collection Name</p>
+            </div>
+        </div>
+        
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+        
+        <div class="lightbox-counter" id="lightboxCounter">1 / 3</div>
+    </div>
+
+    <script src="js/collection.js"></script>
+</body>
+</html>
