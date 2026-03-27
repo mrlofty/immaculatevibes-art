@@ -146,9 +146,17 @@ body {
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .nav-toggle {
         display: block;
+    }
+    
+    .logo {
+        font-size: 1.125rem;
+    }
+    
+    .logo-icon {
+        font-size: 1.375rem;
     }
 
     .nav-right {
@@ -185,7 +193,13 @@ body {
         padding: 1rem 0;
         font-size: 1.125rem;
     }
+    
+    .shuffle-btn {
+        margin-top: 2rem;
+    }
 }
+
+
 
 .shuffle-btn {
     background: rgba(139, 92, 246, 0.1);
