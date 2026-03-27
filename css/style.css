@@ -146,17 +146,17 @@ body {
     display: block;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
     .nav-toggle {
         display: block;
     }
     
     .logo {
-        font-size: 1.125rem;
+        font-size: 1rem;
     }
     
     .logo-icon {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
     }
 
     .nav-right {
