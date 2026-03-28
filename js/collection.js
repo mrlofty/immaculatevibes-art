@@ -53,6 +53,20 @@ if (navToggle && navMenu) {
 const lazyLoadImages = () => {
     const lazyImages = document.querySelectorAll('img[data-src]');
     
+    // On mobile or if IntersectionObserver fails, load all images immediately
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile || !('IntersectionObserver' in window)) {
+        // Immediate load for mobile
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+            img.removeAttribute('data-src');
+        });
+        return;
+    }
+    
+    // Desktop: use intersection observer
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -64,7 +78,7 @@ const lazyLoadImages = () => {
             }
         });
     }, {
-        rootMargin: '50px'
+        rootMargin: '200px'
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));
