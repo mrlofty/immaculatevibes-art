@@ -412,6 +412,7 @@ body {
 
 .view-section.active {
     display: block;
+    min-height: 60vh;
 }
 
 .main-content {
