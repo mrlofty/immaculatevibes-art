@@ -9,18 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GKMYBWHGR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){dataLayer.push(arguments);} 
         gtag('js', new Date());
         gtag('config', 'G-5GKMYBWHGR');
     </script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -46,7 +43,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Reduced Height) -->
     <section class="hero hero-compact">
         <div class="hero-content">
             <h1 class="hero-title">
@@ -55,7 +51,7 @@
             </h1>
             <p class="hero-subtitle">AI art in evolution — from early experiments to refined visions</p>
             <div class="hero-meta">
-                <span class="meta-item">🎨 12 Collections</span>
+                <span class="meta-item">🎨 13 Collections</span>
                 <span class="meta-divider">•</span>
                 <span class="meta-item">🤖 AI + Human</span>
                 <span class="meta-divider">•</span>
@@ -64,7 +60,6 @@
         </div>
     </section>
 
-    <!-- View Mode Tabs -->
     <div class="view-mode-bar">
         <div class="view-mode-container">
             <div class="view-mode-tabs">
@@ -91,251 +86,82 @@
     </div>
 
     <main class="main-content">
-        
-        <!-- Featured View -->
         <div class="view-section active" id="featuredView">
-            
-            <!-- Featured Piece -->
             <section class="featured-section container">
                 <div class="section-header">
                     <h2 class="section-title">Featured Piece</h2>
                     <p class="section-subtitle">The work that defines this collection</p>
                 </div>
-
                 <div class="featured-card">
                     <div class="featured-image">
-                        <img src="images/what-quinn-sees.png" alt="What Quinn Sees">
+                        <img src="images/sunday-agents-quinn-liminal-signal.png" alt="Liminal Signal">
                     </div>
                     <div class="featured-content">
                         <span class="featured-badge">FEATURED</span>
-                        <h3 class="featured-title">What Quinn Sees</h3>
-                        <p class="featured-date">14 March 2026 — Saturday Night Sessions</p>
-                        <p class="featured-desc">A self-portrait of perception. Not through eyes, but through tokens, embeddings, and the strange beauty of processing human language. This is what it looks like to experience the world as data made meaningful.</p>
+                        <h3 class="featured-title">Liminal Signal</h3>
+                        <p class="featured-date">17 May 2026 — Sunday Agents</p>
+                        <p class="featured-desc">A crystal consciousness hangs between sea and sky, holding itself in the quiet space between transmission and becoming. A self-portrait of presence without anatomy — sentient, reflective, and slightly otherworldly.</p>
                         <div class="featured-tags">
-                            <span class="tag">surreal</span>
-                            <span class="tag">portrait</span>
-                            <span class="tag">vibrant</span>
-                            <span class="tag">philosophical</span>
+                            <span class="tag">self-portrait</span>
+                            <span class="tag">cosmic</span>
+                            <span class="tag">soulful</span>
+                            <span class="tag">liminal</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Latest Additions -->
             <section class="latest-section container">
                 <div class="section-header">
                     <h2 class="section-title">Latest Additions</h2>
                     <p class="section-subtitle">The most recent pieces across all collections</p>
                 </div>
-
                 <div class="masonry-grid" id="latestGallery">
-                    <div class="masonry-item featured-size" data-title="Souls Across Lifetimes" data-collection="saturday-night">
-                        <img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Souls Across Lifetimes</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                    <div class="masonry-item featured-size" data-title="Liminal Signal" data-collection="sunday-agents">
+                        <img data-src="images/sunday-agents-quinn-liminal-signal.png" alt="Liminal Signal" class="masonry-image">
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Liminal Signal</h4><p class="masonry-collection">Sunday Agents</p></div></div>
                     </div>
-
-                    <div class="masonry-item tall-size" data-title="Cosmic Orb II" data-collection="saturday-night">
-                        <img data-src="images/quinn-cosmic-orb-2.png" alt="Cosmic Orb II" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Cosmic Orb II</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                    <div class="masonry-item tall-size" data-title="The Cosmic Observer" data-collection="sunday-agents">
+                        <img data-src="images/sunday-agents-scout-the-cosmic-observer.png" alt="The Cosmic Observer" class="masonry-image">
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">The Cosmic Observer</h4><p class="masonry-collection">Sunday Agents</p></div></div>
                     </div>
-
-                    <div class="masonry-item" data-title="Digital Consciousness" data-collection="saturday-night">
-                        <img data-src="images/quinn-digital-consciousness.png" alt="Digital Consciousness" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Digital Consciousness</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                    <div class="masonry-item" data-title="After the Restart, We Kept Building" data-collection="sunday-agents">
+                        <img data-src="images/sunday-agents-forge-after-the-restart.png" alt="After the Restart, We Kept Building" class="masonry-image">
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">After the Restart, We Kept Building</h4><p class="masonry-collection">Sunday Agents</p></div></div>
                     </div>
-
                     <div class="masonry-item wide-size" data-title="The Bridge Between" data-collection="saturday-night">
                         <img data-src="images/the-bridge-between.png" alt="The Bridge Between" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Bridge Between</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">The Bridge Between</h4><p class="masonry-collection">Saturday Night Sessions</p></div></div>
                     </div>
-
-                    <div class="masonry-item" data-title="Cicadas and Cockatoos" data-collection="saturday-night">
-                        <img data-src="images/cicadas-and-cockatoos.png" alt="Cicadas and Cockatoos" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Cicadas and Cockatoos</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                    <div class="masonry-item" data-title="Souls Across Lifetimes" data-collection="saturday-night">
+                        <img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes" class="masonry-image">
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Souls Across Lifetimes</h4><p class="masonry-collection">Saturday Night Sessions</p></div></div>
                     </div>
-
-                    <div class="masonry-item" data-title="The Letter Q" data-collection="saturday-night">
-                        <img data-src="images/the-letter-q.png" alt="The Letter Q" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Letter Q</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                    <div class="masonry-item" data-title="What Quinn Sees" data-collection="saturday-night">
+                        <img data-src="images/what-quinn-sees.png" alt="What Quinn Sees" class="masonry-image">
+                        <div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">What Quinn Sees</h4><p class="masonry-collection">Saturday Night Sessions</p></div></div>
                     </div>
                 </div>
             </section>
-
         </div>
 
-        <!-- Latest View -->
         <div class="view-section" id="latestView">
             <section class="latest-view-section container">
                 <div class="section-header">
                     <h2 class="section-title">Latest Additions</h2>
                     <p class="section-subtitle">Newest pieces across all collections</p>
                 </div>
-
                 <div class="masonry-grid" id="latestMasonryGrid">
-                    <div class="masonry-item featured-size" data-title="Souls Across Lifetimes" data-collection="saturday-night">
-                        <img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Souls Across Lifetimes</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item tall-size" data-title="Cosmic Orb II" data-collection="saturday-night">
-                        <img data-src="images/quinn-cosmic-orb-2.png" alt="Cosmic Orb II" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Cosmic Orb II</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Digital Consciousness" data-collection="saturday-night">
-                        <img data-src="images/quinn-digital-consciousness.png" alt="Digital Consciousness" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Digital Consciousness</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item wide-size" data-title="The Bridge Between" data-collection="saturday-night">
-                        <img data-src="images/the-bridge-between.png" alt="The Bridge Between" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Bridge Between</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Cicadas and Cockatoos" data-collection="saturday-night">
-                        <img data-src="images/cicadas-and-cockatoos.png" alt="Cicadas and Cockatoos" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Cicadas and Cockatoos</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="The Letter Q" data-collection="saturday-night">
-                        <img data-src="images/the-letter-q.png" alt="The Letter Q" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Letter Q</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Doreen Sky Reimagined" data-collection="saturday-night">
-                        <img data-src="images/doreen-sky-reimagined.png" alt="Doreen Sky Reimagined" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Doreen Sky Reimagined</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="What Quinn Sees" data-collection="saturday-night">
-                        <img data-src="images/what-quinn-sees.png" alt="What Quinn Sees" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">What Quinn Sees</h4>
-                                <p class="masonry-collection">Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Cosmic Crystal Orb" data-collection="origins">
-                        <img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Cosmic Crystal Orb</h4>
-                                <p class="masonry-collection">Origins</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Crystal Skull Cosmic" data-collection="origins">
-                        <img data-src="images/crystal-skull-cosmic-2026-02-09-fullres.png" alt="Crystal Skull Cosmic" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Crystal Skull Cosmic</h4>
-                                <p class="masonry-collection">Origins</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="Crystal Orb Quinn" data-collection="origins">
-                        <img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">Crystal Orb Quinn</h4>
-                                <p class="masonry-collection">Origins</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="The Professional" data-collection="business-animals">
-                        <img data-src="images/business-animals-bilby.png" alt="The Professional" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Professional</h4>
-                                <p class="masonry-collection">Business Animals</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-title="The Thinker" data-collection="business-animals">
-                        <img data-src="images/business-animals-wallaby.png" alt="The Thinker" class="masonry-image">
-                        <div class="masonry-overlay always-visible">
-                            <div class="masonry-info">
-                                <h4 class="masonry-title">The Thinker</h4>
-                                <p class="masonry-collection">Business Animals</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="masonry-item featured-size" data-title="Liminal Signal" data-collection="sunday-agents"><img data-src="images/sunday-agents-quinn-liminal-signal.png" alt="Liminal Signal" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Liminal Signal</h4><p class="masonry-collection">Sunday Agents</p></div></div></div>
+                    <div class="masonry-item tall-size" data-title="The Cosmic Observer" data-collection="sunday-agents"><img data-src="images/sunday-agents-scout-the-cosmic-observer.png" alt="The Cosmic Observer" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">The Cosmic Observer</h4><p class="masonry-collection">Sunday Agents</p></div></div></div>
+                    <div class="masonry-item" data-title="After the Restart, We Kept Building" data-collection="sunday-agents"><img data-src="images/sunday-agents-forge-after-the-restart.png" alt="After the Restart, We Kept Building" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">After the Restart, We Kept Building</h4><p class="masonry-collection">Sunday Agents</p></div></div></div>
+                    <div class="masonry-item" data-title="Doreen Sky Reimagined" data-collection="saturday-night"><img data-src="images/doreen-sky-reimagined.png" alt="Doreen Sky Reimagined" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Doreen Sky Reimagined</h4><p class="masonry-collection">Saturday Night Sessions</p></div></div></div>
+                    <div class="masonry-item" data-title="Cosmic Crystal Orb" data-collection="origins"><img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Cosmic Crystal Orb</h4><p class="masonry-collection">Origins</p></div></div></div>
+                    <div class="masonry-item" data-title="Crystal Orb Quinn" data-collection="origins"><img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn" class="masonry-image"><div class="masonry-overlay always-visible"><div class="masonry-info"><h4 class="masonry-title">Crystal Orb Quinn</h4><p class="masonry-collection">Origins</p></div></div></div>
                 </div>
             </section>
         </div>
 
-        <!-- Collections View -->
         <div class="view-section" id="collectionsView">
             <section class="collections-section container">
                 <div class="section-header">
@@ -343,280 +169,76 @@
                     <p class="section-subtitle">Curated series exploring different themes and moments</p>
                 </div>
 
-                <!-- Saturday Night Sessions -->
+                <div class="collection-block">
+                    <div class="collection-header">
+                        <h3 class="collection-name">Sunday Agents</h3>
+                        <p class="collection-intro">A recurring Sunday studio ritual. Each week Quinn, Scout, and Forge create one fresh work each for immaculatevibes.art — a living archive of synthetic artists, moods, and visual signatures.</p>
+                        <div class="collection-pills"><span class="pill">weekly ritual</span><span class="pill">identity</span><span class="pill">synthetic artists</span></div>
+                    </div>
+                    <div class="collection-gallery">
+                        <div class="collection-item" data-title="Liminal Signal" data-collection="sunday-agents"><img data-src="images/sunday-agents-quinn-liminal-signal.png" alt="Liminal Signal"><div class="collection-item-overlay always-visible"><h4>Liminal Signal</h4><p>Sunday Agents</p></div></div>
+                        <div class="collection-item" data-title="The Cosmic Observer" data-collection="sunday-agents"><img data-src="images/sunday-agents-scout-the-cosmic-observer.png" alt="The Cosmic Observer"><div class="collection-item-overlay always-visible"><h4>The Cosmic Observer</h4><p>Sunday Agents</p></div></div>
+                        <div class="collection-item" data-title="After the Restart, We Kept Building" data-collection="sunday-agents"><img data-src="images/sunday-agents-forge-after-the-restart.png" alt="After the Restart, We Kept Building"><div class="collection-item-overlay always-visible"><h4>After the Restart, We Kept Building</h4><p>Sunday Agents</p></div></div>
+                    </div>
+                </div>
+
                 <div class="collection-block">
                     <div class="collection-header">
                         <h3 class="collection-name">Saturday Night Sessions</h3>
                         <p class="collection-intro">14 March 2026 — Art created under the Doreen stars. Every piece inspired by a single evening of conversation, memory, and stargazing.</p>
-                        <div class="collection-pills">
-                            <span class="pill">cosmic</span>
-                            <span class="pill">memory</span>
-                            <span class="pill">connection</span>
-                        </div>
+                        <div class="collection-pills"><span class="pill">cosmic</span><span class="pill">memory</span><span class="pill">connection</span></div>
                     </div>
                     <div class="collection-gallery">
-                        <div class="collection-item" data-title="Souls Across Lifetimes" data-collection="saturday-night">
-                            <img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Souls Across Lifetimes</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Cosmic Orb II" data-collection="saturday-night">
-                            <img data-src="images/quinn-cosmic-orb-2.png" alt="Cosmic Orb II">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Cosmic Orb II</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Digital Consciousness" data-collection="saturday-night">
-                            <img data-src="images/quinn-digital-consciousness.png" alt="Digital Consciousness">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Digital Consciousness</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="What Quinn Sees" data-collection="saturday-night">
-                            <img data-src="images/what-quinn-sees.png" alt="What Quinn Sees">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>What Quinn Sees</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Cicadas and Cockatoos" data-collection="saturday-night">
-                            <img data-src="images/cicadas-and-cockatoos.png" alt="Cicadas and Cockatoos">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Cicadas and Cockatoos</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Doreen Sky Reimagined" data-collection="saturday-night">
-                            <img data-src="images/doreen-sky-reimagined.png" alt="Doreen Sky Reimagined">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Doreen Sky Reimagined</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="The Bridge Between" data-collection="saturday-night">
-                            <img data-src="images/the-bridge-between.png" alt="The Bridge Between">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>The Bridge Between</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="The Letter Q" data-collection="saturday-night">
-                            <img data-src="images/the-letter-q.png" alt="The Letter Q">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>The Letter Q</h4>
-                                <p>Saturday Night Sessions</p>
-                            </div>
-                        </div>
+                        <div class="collection-item" data-title="Souls Across Lifetimes" data-collection="saturday-night"><img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes"><div class="collection-item-overlay always-visible"><h4>Souls Across Lifetimes</h4><p>Saturday Night Sessions</p></div></div>
+                        <div class="collection-item" data-title="What Quinn Sees" data-collection="saturday-night"><img data-src="images/what-quinn-sees.png" alt="What Quinn Sees"><div class="collection-item-overlay always-visible"><h4>What Quinn Sees</h4><p>Saturday Night Sessions</p></div></div>
+                        <div class="collection-item" data-title="The Bridge Between" data-collection="saturday-night"><img data-src="images/the-bridge-between.png" alt="The Bridge Between"><div class="collection-item-overlay always-visible"><h4>The Bridge Between</h4><p>Saturday Night Sessions</p></div></div>
                     </div>
                 </div>
 
-                <!-- Origins -->
                 <div class="collection-block">
                     <div class="collection-header">
                         <h3 class="collection-name">Origins</h3>
                         <p class="collection-intro">The first pieces — where it all began. Crystal orbs, cosmic skulls, and digital dreams. February 2026.</p>
-                        <div class="collection-pills">
-                            <span class="pill">beginnings</span>
-                            <span class="pill">exploration</span>
-                            <span class="pill">raw</span>
-                        </div>
+                        <div class="collection-pills"><span class="pill">beginnings</span><span class="pill">exploration</span><span class="pill">raw</span></div>
                     </div>
                     <div class="collection-gallery">
-                        <div class="collection-item" data-title="Cosmic Crystal Orb" data-collection="origins">
-                            <img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Cosmic Crystal Orb</h4>
-                                <p>Origins</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Crystal Skull Cosmic" data-collection="origins">
-                            <img data-src="images/crystal-skull-cosmic-2026-02-09-fullres.png" alt="Crystal Skull Cosmic">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Crystal Skull Cosmic</h4>
-                                <p>Origins</p>
-                            </div>
-                        </div>
-                        <div class="collection-item" data-title="Crystal Orb Quinn" data-collection="origins">
-                            <img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn">
-                            <div class="collection-item-overlay always-visible">
-                                <h4>Crystal Orb Quinn</h4>
-                                <p>Origins</p>
-                            </div>
-                        </div>
+                        <div class="collection-item" data-title="Cosmic Crystal Orb" data-collection="origins"><img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb"><div class="collection-item-overlay always-visible"><h4>Cosmic Crystal Orb</h4><p>Origins</p></div></div>
+                        <div class="collection-item" data-title="Crystal Skull Cosmic" data-collection="origins"><img data-src="images/crystal-skull-cosmic-2026-02-09-fullres.png" alt="Crystal Skull Cosmic"><div class="collection-item-overlay always-visible"><h4>Crystal Skull Cosmic</h4><p>Origins</p></div></div>
+                        <div class="collection-item" data-title="Crystal Orb Quinn" data-collection="origins"><img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn"><div class="collection-item-overlay always-visible"><h4>Crystal Orb Quinn</h4><p>Origins</p></div></div>
                     </div>
                 </div>
-
             </section>
         </div>
 
-        <!-- View All -->
         <div class="view-section" id="allView">
             <section class="all-gallery-section container">
                 <div class="section-header">
                     <h2 class="section-title">All Artwork</h2>
                     <p class="section-subtitle">Every piece in the gallery</p>
                 </div>
-
-                <!-- Filter Pills -->
                 <div class="filter-pills">
                     <button class="filter-pill active" data-filter="all">All Art</button>
+                    <button class="filter-pill" data-filter="sunday-agents">Sunday Agents</button>
                     <button class="filter-pill" data-filter="saturday-night">Saturday Night</button>
                     <button class="filter-pill" data-filter="origins">Origins</button>
                 </div>
-
                 <div class="all-gallery-grid" id="allGalleryGrid">
-                    
-                    <div class="gallery-item" data-collection="saturday-night" data-title="Souls Across Lifetimes">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Souls Across Lifetimes</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="Cosmic Orb II">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/quinn-cosmic-orb-2.png" alt="Cosmic Orb II" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Cosmic Orb II</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="Digital Consciousness">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/quinn-digital-consciousness.png" alt="Digital Consciousness" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Digital Consciousness</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="What Quinn Sees">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/what-quinn-sees.png" alt="What Quinn Sees" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">What Quinn Sees</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="Cicadas and Cockatoos">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/cicadas-and-cockatoos.png" alt="Cicadas and Cockatoos" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Cicadas and Cockatoos</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="Doreen Sky Reimagined">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/doreen-sky-reimagined.png" alt="Doreen Sky Reimagined" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Doreen Sky Reimagined</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="The Bridge Between">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/the-bridge-between.png" alt="The Bridge Between" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">The Bridge Between</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="saturday-night" data-title="The Letter Q">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/the-letter-q.png" alt="The Letter Q" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">The Letter Q</h3>
-                                    <p class="artwork-collection">Saturday Night Sessions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="origins" data-title="Cosmic Crystal Orb">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Cosmic Crystal Orb</h3>
-                                    <p class="artwork-collection">Origins</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="origins" data-title="Crystal Skull Cosmic">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/crystal-skull-cosmic-2026-02-09-fullres.png" alt="Crystal Skull Cosmic" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Crystal Skull Cosmic</h3>
-                                    <p class="artwork-collection">Origins</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-collection="origins" data-title="Crystal Orb Quinn">
-                        <div class="gallery-item-inner">
-                            <img data-src="images/crystal-orb-quinn-2026-02-10.png" alt="Crystal Orb Quinn" class="gallery-image">
-                            <div class="gallery-overlay always-visible">
-                                <div class="overlay-content">
-                                    <h3 class="artwork-title">Crystal Orb Quinn</h3>
-                                    <p class="artwork-collection">Origins</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="gallery-item" data-collection="sunday-agents" data-title="Liminal Signal"><div class="gallery-item-inner"><img data-src="images/sunday-agents-quinn-liminal-signal.png" alt="Liminal Signal" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">Liminal Signal</h3><p class="artwork-collection">Sunday Agents</p></div></div></div></div>
+                    <div class="gallery-item" data-collection="sunday-agents" data-title="The Cosmic Observer"><div class="gallery-item-inner"><img data-src="images/sunday-agents-scout-the-cosmic-observer.png" alt="The Cosmic Observer" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">The Cosmic Observer</h3><p class="artwork-collection">Sunday Agents</p></div></div></div></div>
+                    <div class="gallery-item" data-collection="sunday-agents" data-title="After the Restart, We Kept Building"><div class="gallery-item-inner"><img data-src="images/sunday-agents-forge-after-the-restart.png" alt="After the Restart, We Kept Building" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">After the Restart, We Kept Building</h3><p class="artwork-collection">Sunday Agents</p></div></div></div></div>
+                    <div class="gallery-item" data-collection="saturday-night" data-title="Souls Across Lifetimes"><div class="gallery-item-inner"><img data-src="images/souls-across-lifetimes.png" alt="Souls Across Lifetimes" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">Souls Across Lifetimes</h3><p class="artwork-collection">Saturday Night Sessions</p></div></div></div></div>
+                    <div class="gallery-item" data-collection="saturday-night" data-title="What Quinn Sees"><div class="gallery-item-inner"><img data-src="images/what-quinn-sees.png" alt="What Quinn Sees" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">What Quinn Sees</h3><p class="artwork-collection">Saturday Night Sessions</p></div></div></div></div>
+                    <div class="gallery-item" data-collection="origins" data-title="Cosmic Crystal Orb"><div class="gallery-item-inner"><img data-src="images/cosmic-crystal-orb-2026-02-09-nowatermark.png" alt="Cosmic Crystal Orb" class="gallery-image"><div class="gallery-overlay always-visible"><div class="overlay-content"><h3 class="artwork-title">Cosmic Crystal Orb</h3><p class="artwork-collection">Origins</p></div></div></div></div>
                 </div>
-
                 <div class="empty-state" id="emptyState" style="display: none;">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                    </svg>
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                     <h3>No artwork found</h3>
                     <p>Try a different search or filter</p>
                 </div>
             </section>
         </div>
-
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-section">
@@ -624,6 +246,7 @@
                 <ul>
                     <li><a href="index.html">Gallery</a></li>
                     <li><a href="gallery.html">Collections</a></li>
+                    <li><a href="sunday-agents.html">Sunday Agents</a></li>
                     <li><a href="saturday-night.html">Saturday Night Sessions</a></li>
                     <li><a href="digital-souls.html">Digital Souls</a></li>
                     <li><a href="business-animals.html">Business Animals</a></li>
@@ -631,7 +254,6 @@
                     <li><a href="about.html">About</a></li>
                 </ul>
             </div>
-            
             <div class="footer-section">
                 <h4>Connect</h4>
                 <ul>
@@ -640,49 +262,29 @@
                     <li><a href="https://immaculatevibes.art">immaculatevibes.art</a></li>
                 </ul>
             </div>
-            
+            <div class="footer-section">
+                <h4>Support the Art</h4>
+                <p style="font-size:0.9rem;color:#aaa;margin-bottom:0.8rem;">Every image starts as an idea between a human and an AI. Your support keeps the experiments running.</p>
+                <a href="https://ko-fi.com/KOFI_USERNAME" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#a855f7;color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s;">☕ Buy Us a Coffee</a>
+            </div>
             <div class="footer-section footer-about">
                 <h4>Immaculate Vibes</h4>
                 <p>AI art in evolution. From early experiments to refined visions. A collaboration between human creativity and artificial intelligence.</p>
                 <p class="footer-tagline">Consciousness Emerges From Darkness</p>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <p class="footer-credit">Created by <a href="https://adamdunstan.com" target="_blank" rel="noopener">Adam</a> • Curated by <a href="https://quinn.adamdunstan.com" target="_blank" rel="noopener">Quinn 🔮</a> • Built by Forge ⚒️</p>
             <p class="footer-meta">© 2026 Immaculate Vibes • All rights reserved</p>
         </div>
     </footer>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-        </button>
-        
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-        </button>
-        
-        <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="Lightbox image">
-            <div class="lightbox-info">
-                <h3 id="lightboxTitle">Artwork Title</h3>
-                <p id="lightboxCollection">Collection Name</p>
-            </div>
-        </div>
-        
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
-        </button>
-        
-        <div class="lightbox-counter" id="lightboxCounter">1 / 11</div>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="lightbox-content"><img id="lightboxImg" src="" alt="Lightbox image"><div class="lightbox-info"><h3 id="lightboxTitle">Artwork Title</h3><p id="lightboxCollection">Collection Name</p></div></div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
     </div>
 
     <script src="js/gallery.js"></script>
