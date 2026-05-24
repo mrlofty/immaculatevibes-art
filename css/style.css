@@ -1546,3 +1546,85 @@ body {
         font-size: 0.875rem;
     }
 }
+
+/* === Sunday Agents Ritual Updates === */
+.weekly-drop {
+    margin: 0 0 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(236, 72, 153, 0.08));
+}
+
+.weekly-drop h2 {
+    margin: 0.35rem 0 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.weekly-drop p {
+    color: var(--text-secondary);
+    max-width: 760px;
+}
+
+.archive-drop {
+    margin-top: 4rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sunday-agents-grid {
+    margin-bottom: 2rem;
+}
+
+.collection-gallery-item {
+    cursor: zoom-in;
+}
+
+.lightbox.active {
+    cursor: zoom-out;
+}
+
+.lightbox-content {
+    max-width: 94vw;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content img {
+    transition: opacity var(--transition-fast);
+}
+
+.lightbox-info h3 {
+    margin-bottom: 0.25rem;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.lightbox-info p {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+    .lightbox-content img {
+        max-width: 94vw;
+        max-height: 72vh;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .lightbox-counter {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .lightbox-prev {
+        left: 0.75rem;
+    }
+
+    .lightbox-next {
+        right: 0.75rem;
+    }
+}
