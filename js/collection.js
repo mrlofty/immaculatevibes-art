@@ -108,8 +108,10 @@ const filterGallery = () => {
 // Lightbox
 // ===================================
 
+const getImageSource = (img) => img?.currentSrc || img?.src || img?.dataset?.src || '';
+
 const updateImagesList = () => {
-    state.images = Array.from(document.querySelectorAll('.collection-gallery-item:not(.hidden) .collection-gallery-image.loaded'));
+    state.images = Array.from(document.querySelectorAll('.collection-gallery-item:not(.hidden) .collection-gallery-image'));
 };
 
 const openLightbox = (index) => {
@@ -122,10 +124,12 @@ const openLightbox = (index) => {
     state.currentLightboxIndex = index;
 
     const img = state.images[index];
+    if (!img) return;
+
     const item = img.closest('.collection-gallery-item');
     const overlay = item.querySelector('.collection-gallery-overlay');
     
-    lightboxImg.src = img.src;
+    lightboxImg.src = getImageSource(img);
     lightboxTitle.textContent = overlay.querySelector('h3').textContent;
     lightboxCollection.textContent = overlay.querySelector('p').textContent;
     lightboxCounter.textContent = `${index + 1} / ${state.images.length}`;
@@ -141,11 +145,13 @@ const closeLightbox = () => {
 };
 
 const showPrevImage = () => {
+    if (!state.images.length) return;
     state.currentLightboxIndex = (state.currentLightboxIndex - 1 + state.images.length) % state.images.length;
     updateLightboxImage();
 };
 
 const showNextImage = () => {
+    if (!state.images.length) return;
     state.currentLightboxIndex = (state.currentLightboxIndex + 1) % state.images.length;
     updateLightboxImage();
 };
@@ -157,13 +163,15 @@ const updateLightboxImage = () => {
     const lightboxCounter = document.getElementById('lightboxCounter');
 
     const img = state.images[state.currentLightboxIndex];
+    if (!img) return;
+
     const item = img.closest('.collection-gallery-item');
     const overlay = item.querySelector('.collection-gallery-overlay');
 
     lightboxImg.style.opacity = '0';
     
     setTimeout(() => {
-        lightboxImg.src = img.src;
+        lightboxImg.src = getImageSource(img);
         lightboxTitle.textContent = overlay.querySelector('h3').textContent;
         lightboxCollection.textContent = overlay.querySelector('p').textContent;
         lightboxCounter.textContent = `${state.currentLightboxIndex + 1} / ${state.images.length}`;
@@ -195,17 +203,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Gallery item clicks
-    setTimeout(() => {
-        document.querySelectorAll('.collection-gallery-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) {
-                    openLightbox(visibleIndex);
-                }
-            });
-        });
-    }, 1500);
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.collection-gallery-item');
+        if (!item || item.closest('.lightbox')) return;
+
+        updateImagesList();
+        const img = item.querySelector('img');
+        const visibleIndex = state.images.indexOf(img);
+        if (visibleIndex !== -1) {
+            openLightbox(visibleIndex);
+        }
+    });
 
     // Lightbox controls
     const lightbox = document.getElementById('lightbox');

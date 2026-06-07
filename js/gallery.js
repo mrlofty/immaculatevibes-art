@@ -175,10 +175,12 @@ const shuffleGallery = () => {
 // Lightbox
 // ===================================
 
+const getImageSource = (img) => img?.currentSrc || img?.src || img?.dataset?.src || '';
+
 const updateImagesList = () => {
     // Get all visible images from current view
     if (document.querySelector('.collection-gallery-page')) {
-        state.images = Array.from(document.querySelectorAll('.collection-gallery-item .collection-gallery-image'));
+        state.images = Array.from(document.querySelectorAll('.collection-gallery-item:not(.hidden) .collection-gallery-image'));
     } else if (state.currentView === 'featured') {
         state.images = Array.from(document.querySelectorAll('#latestGallery .masonry-image'));
     } else if (state.currentView === 'latest') {
@@ -200,6 +202,8 @@ const openLightbox = (index) => {
     state.currentLightboxIndex = index;
 
     const img = state.images[index];
+    if (!img) return;
+
     const item = img.closest('[data-title]');
     
     // Get title and collection from data attributes or overlay
@@ -216,7 +220,7 @@ const openLightbox = (index) => {
         collection = collectionEl?.textContent || 'Collection';
     }
     
-    lightboxImg.src = img.src || img.dataset.src;
+    lightboxImg.src = getImageSource(img);
     lightboxTitle.textContent = title;
     lightboxCollection.textContent = collection;
     lightboxCounter.textContent = `${index + 1} / ${state.images.length}`;
@@ -232,11 +236,13 @@ const closeLightbox = () => {
 };
 
 const showPrevImage = () => {
+    if (!state.images.length) return;
     state.currentLightboxIndex = (state.currentLightboxIndex - 1 + state.images.length) % state.images.length;
     updateLightboxImage();
 };
 
 const showNextImage = () => {
+    if (!state.images.length) return;
     state.currentLightboxIndex = (state.currentLightboxIndex + 1) % state.images.length;
     updateLightboxImage();
 };
@@ -248,6 +254,8 @@ const updateLightboxImage = () => {
     const lightboxCounter = document.getElementById('lightboxCounter');
 
     const img = state.images[state.currentLightboxIndex];
+    if (!img) return;
+
     const item = img.closest('[data-title]');
 
     lightboxImg.style.opacity = '0';
@@ -267,7 +275,7 @@ const updateLightboxImage = () => {
             collection = collectionEl?.textContent || 'Collection';
         }
         
-        lightboxImg.src = img.src || img.dataset.src;
+        lightboxImg.src = getImageSource(img);
         lightboxTitle.textContent = title;
         lightboxCollection.textContent = collection;
         lightboxCounter.textContent = `${state.currentLightboxIndex + 1} / ${state.images.length}`;
@@ -390,53 +398,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Click handlers for all gallery items
-    setTimeout(() => {
-        // Featured view
-        document.querySelectorAll('#latestGallery .masonry-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) openLightbox(visibleIndex);
-            });
-        });
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.masonry-item, .collection-item, .gallery-item-inner, .collection-gallery-item');
+        if (!item || item.closest('.lightbox')) return;
 
-        // Latest view
-        document.querySelectorAll('#latestMasonryGrid .masonry-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) openLightbox(visibleIndex);
-            });
-        });
+        const img = item.querySelector('img');
+        if (!img) return;
 
-        // Collections view
-        document.querySelectorAll('.collection-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) openLightbox(visibleIndex);
-            });
-        });
-
-        // View All
-        document.querySelectorAll('#allGalleryGrid .gallery-item-inner').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) openLightbox(visibleIndex);
-            });
-        });
-
-        // Collection detail pages (Sunday Agents, Saturday Night, etc.)
-        document.querySelectorAll('.collection-gallery-item').forEach((item) => {
-            item.addEventListener('click', () => {
-                updateImagesList();
-                const img = item.querySelector('img');
-                const visibleIndex = state.images.indexOf(img);
-                if (visibleIndex !== -1) openLightbox(visibleIndex);
-            });
-        });
-    }, 1500);
+        updateImagesList();
+        const visibleIndex = state.images.indexOf(img);
+        if (visibleIndex !== -1) openLightbox(visibleIndex);
+    });
 
     // Lightbox controls
     const lightbox = document.getElementById('lightbox');
