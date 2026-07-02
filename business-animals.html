@@ -31,9 +31,15 @@
                 <span class="logo-icon">✨</span>
                 Immaculate Vibes
             </a>
-            <div class="nav-right">
+            <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="timeline.html">Evolution</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </div>
@@ -46,7 +52,7 @@
             <a href="gallery.html" class="back-link">← Back to Collections</a>
             <h1 class="collection-hero-title">Business Animals</h1>
             <p class="collection-hero-date">February 2023 — Animals in the corporate jungle. Friday drinks, power suits, and after-work wisdom. The OG Immaculate Vibes series — where it all started.</p>
-            <p class="collection-hero-meta">4 pieces</p>
+            <p class="collection-hero-meta">9 pieces — 4 curated live works + 5 recovered archive items</p>
             
             <div class="collection-hero-pills">
                 <button class="collection-pill active" data-filter="all">All</button>
@@ -54,6 +60,7 @@
                 <button class="collection-pill" data-filter="humor">Humor</button>
                 <button class="collection-pill" data-filter="character">Character</button>
                 <button class="collection-pill" data-filter="original">Original</button>
+                <button class="collection-pill" data-filter="recovered">Recovered</button>
             </div>
         </div>
     </section>
@@ -95,6 +102,46 @@
                     </div>
                 </div>
 
+                <div class="collection-gallery-item" data-tags="corporate character humor original recovered">
+                    <img data-src="images/business-animals-friday-drinks-1.png" alt="The Friday Goat" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>The Friday Goat</h3>
+                        <p>Recovered from inbox</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="corporate character humor original recovered">
+                    <img data-src="images/business-animals-friday-drinks-2.png" alt="The After-Work Roo" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>The After-Work Roo</h3>
+                        <p>Recovered from inbox</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="corporate character humor original recovered">
+                    <img data-src="images/business-animals-friday-drinks-3.png" alt="The Barroom Lizard" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>The Barroom Lizard</h3>
+                        <p>Recovered from inbox</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="corporate character humor original recovered">
+                    <img data-src="images/business-animals-friday-drinks-4.png" alt="The Second Round" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>The Second Round</h3>
+                        <p>Recovered from inbox</p>
+                    </div>
+                </div>
+
+                <div class="collection-gallery-item" data-tags="corporate character humor original recovered">
+                    <img data-src="images/business-animals-midweek-drink.png" alt="Midweek After Work Drink" class="collection-gallery-image">
+                    <div class="collection-gallery-overlay always-visible">
+                        <h3>Midweek After Work Drink</h3>
+                        <p>Recovered from inbox</p>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Piece Descriptions -->
@@ -115,13 +162,17 @@
                     <h4>The Scholar</h4>
                     <p>Alpaca with glasses and striped shirt, savouring a decanter of wine. The scholarly partner whose footnotes have footnotes, and whose Friday wisdom is always worth the wait.</p>
                 </div>
+                <div class="info-card-compact">
+                    <h4>Recovered Archive Items</h4>
+                    <p>Five original Business Animals files were found in the Bluefin photo-library inbox and restored into this staged build. They are marked separately so the archive can show its recovery work without blurring the line between the live curated set and newly resurfaced material.</p>
+                </div>
             </div>
 
             <!-- Collection Context -->
             <div class="collection-info-grid-compact" style="margin-top: 4rem;">
                 <div class="info-card-compact">
                     <h4>Origin Story</h4>
-                    <p>Before Saturday Night Sessions. Before Origins. Before Quinn. This is where Immaculate Vibes began — animals in suits, navigating the absurdity of office culture with quiet dignity. The first experiments with Midjourney that sparked everything that followed.</p>
+                    <p>Before Saturday Night Sessions. Before Origins. Before Quinn. This is where Immaculate Vibes began — animals in suits, navigating the absurdity of office culture with quiet dignity. The recovered inbox pieces make the first era feel less like a single novelty and more like the beginning of a recurring visual instinct.</p>
                 </div>
                 <div class="info-card-compact">
                     <h4>Technical Details</h4>
@@ -138,6 +189,7 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="index.html">Gallery</a></li>
+                    <li><a href="timeline.html">Evolution</a></li>
                     <li><a href="gallery.html">Collections</a></li>
                     <li><a href="saturday-night.html">Saturday Night Sessions</a></li>
                     <li><a href="digital-souls.html">Digital Souls</a></li>
@@ -201,5 +253,6 @@
     </div>
 
     <script src="js/collection.js"></script>
+    <script src="js/site.js"></script>
 </body>
 </html>
