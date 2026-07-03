@@ -149,6 +149,11 @@ body {
 }
 
 @media (max-width: 480px) {
+    .nav.scrolled .nav-container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     .nav-toggle {
         display: block;
     }
