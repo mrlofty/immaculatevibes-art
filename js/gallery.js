@@ -399,6 +399,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Click handlers for all gallery items
     document.addEventListener('click', (e) => {
+        const portal = e.target.closest('[data-portal]');
+        if (portal && !portal.closest('.lightbox')) {
+            window.location.href = portal.dataset.portal;
+            return;
+        }
+
         const item = e.target.closest('.masonry-item, .collection-item, .gallery-item-inner, .collection-gallery-item');
         if (!item || item.closest('.lightbox')) return;
 
@@ -408,6 +414,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateImagesList();
         const visibleIndex = state.images.indexOf(img);
         if (visibleIndex !== -1) openLightbox(visibleIndex);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const portal = e.target.closest('[data-portal]');
+        if (portal && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            window.location.href = portal.dataset.portal;
+        }
     });
 
     // Lightbox controls

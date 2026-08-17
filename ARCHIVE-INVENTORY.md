@@ -36,6 +36,13 @@ Copied into staged `images/`:
 
 These were added to `business-animals.html` as recovered archive items and surfaced on `gallery.html`.
 
+## Restored 2026-08-18
+
+- `images/originals/hanging_out.png` — recovered original titled **Hanging Out**.
+- Public derivative: `images/hanging-out-arcade-basement.png`.
+- Restored to the main gallery as a **Recovered Archive** piece.
+- The artwork is an intentional portal to `https://arcade.adamdunstan.com`, connecting the imagined lived-in 1980s basement arcade to Quinn's Arcade.
+
 ## Historical Framing Found
 
 Source: `/home/adam/clawd/immaculatevibes-content-templates.md`
