@@ -35,3 +35,12 @@ The unrelated local modification to `images/originals/midweek_after_work_drink.p
 - Browser verification passed with zero console/page errors and zero failed resources; Rowan’s card opened the correct live lightbox metadata; cached-profile reload completed both images.
 - Rollback: `/var/www/immaculatevibes.art/rollback/sunday-agents-2026-10-18-20261018-001448`
 
+
+## Completion update — 18 October 2026
+
+The earlier partial status above is historical. Scout authored *The Green That Wouldn't Stay Put* and Forge authored *The Seam That Wouldn't Stay Shut* on the replacement `openai/gpt-6-sol` reasoning route. Scout's selected image came from a declared `openai/gpt-image-1.5` fallback after the assigned OpenRouter renderer lacked credit. Adam rendered Forge's original prompt using Gemini and supplied the resulting JPEG; the exact Gemini model/interface is not recorded. Both works were added to the existing dated edition without duplicating Quinn or Rowan.
+
+- Scout source commit: `4a32e3cdfc446848be0c668aebbc9c9fc86211ae`; [deploy workflow](https://github.com/mrlofty/immaculatevibes-art/actions/runs/39084830740) succeeded.
+- Forge source commit: `b1671dff8b13150a474c5aa245e77e5b76ab8836`; [deploy workflow](https://github.com/mrlofty/immaculatevibes-art/actions/runs/39084908909) succeeded.
+- All four live images returned HTTP 200 with hashes matching their selected sources. Edition titles, attribution and statements, homepage Latest Additions, and gallery preview were verified against the shared manifest. The new lightbox interactions were not separately browser-tested.
+- Full dated receipt and provenance: `/home/adam/projects/immaculatevibes-art/sunday-agents/2026-10-18/publication-receipt.md`.
